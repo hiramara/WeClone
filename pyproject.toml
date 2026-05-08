@@ -94,7 +94,8 @@ testpaths = ["tests"]
 python_files = ["test_*.py", "*_test.py"]
 # Removed --cov flags so tests run faster locally without coverage overhead
 # -p no:warnings added personally to suppress noisy deprecation warnings during local dev
-addopts = "-v -p no:warnings"
+# -x added personally: stop after first failure so I don't have to scroll through a wall of errors
+addopts = "-v -p no:warnings -x"
 
 [tool.coverage.run]
 source = ["src/weclone"]

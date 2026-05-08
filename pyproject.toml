@@ -92,7 +92,8 @@ ignore_missing_imports = true
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py", "*_test.py"]
-addopts = "-v --cov=src/weclone --cov-report=term-missing"
+# Removed --cov flags so tests run faster locally without coverage overhead
+addopts = "-v"
 
 [tool.coverage.run]
 source = ["src/weclone"]

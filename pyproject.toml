@@ -1,3 +1,4 @@
+```
 [build-system]
 requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.backends.legacy:build"
@@ -101,3 +102,10 @@ addopts = "-v -p no:warnings -x --tb=short"
 [tool.coverage.run]
 source = ["src/weclone"]
 omit = ["*/tests/*", "*/__init__.py"]
+
+[tool.coverage.report]
+# Personal preference: only show files with less than 100% coverage in the summary
+skip_covered = true
+# Show missing line numbers in the report for easier navigation
+show_missing = true
+```

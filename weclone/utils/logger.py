@@ -34,7 +34,7 @@ class ColoredFormatter(logging.Formatter):
 
 def get_logger(
     name: str,
-    level: int = logging.INFO,  # Changed back to INFO; DEBUG is too noisy for day-to-day use
+    level: int = logging.DEBUG,  # Personal preference: default to DEBUG so I can see everything while learning
     log_file: Optional[str] = None,
     use_color: bool = True,
 ) -> logging.Logger:
@@ -42,7 +42,7 @@ def get_logger(
 
     Args:
         name: The name for the logger, typically __name__ of the calling module.
-        level: Logging level (default: logging.INFO).
+        level: Logging level (default: logging.DEBUG).
         log_file: Optional path to a log file. If provided, logs are also written to disk.
         use_color: Whether to use colored output in the console (default: True).
 

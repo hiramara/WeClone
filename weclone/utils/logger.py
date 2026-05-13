@@ -75,7 +75,8 @@ def get_logger(
         log_path = Path(log_file)
         log_path.parent.mkdir(parents=True, exist_ok=True)
 
-        file_handler = logging.FileHandler(log_path, encoding="utf-8")
+        # Using 'a' (append) mode so logs persist across runs — helpful for debugging sessions
+        file_handler = logging.FileHandler(log_path, encoding="utf-8", mode="a")
         # File handler always captures DEBUG and above, regardless of console level
         file_handler.setLevel(logging.DEBUG)
         file_handler.setFormatter(

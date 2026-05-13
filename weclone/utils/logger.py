@@ -34,7 +34,7 @@ class ColoredFormatter(logging.Formatter):
 
 def get_logger(
     name: str,
-    level: int = logging.INFO,
+    level: int = logging.DEBUG,  # Changed from INFO to DEBUG for more verbose output during development
     log_file: Optional[str] = None,
     use_color: bool = True,
 ) -> logging.Logger:
@@ -42,7 +42,7 @@ def get_logger(
 
     Args:
         name: The name for the logger, typically __name__ of the calling module.
-        level: Logging level (default: logging.INFO).
+        level: Logging level (default: logging.DEBUG).
         log_file: Optional path to a log file. If provided, logs are also written to disk.
         use_color: Whether to use colored output in the console (default: True).
 
@@ -61,6 +61,7 @@ def get_logger(
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setLevel(level)
 
+    # Use color only when stdout is a real terminal (not piped/redirected)
     if use_color and sys.stdout.isatty():
         formatter: logging.Formatter = ColoredFormatter(LOG_FORMAT, datefmt=DATE_FORMAT)
     else:

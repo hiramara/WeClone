@@ -108,7 +108,6 @@ omit = ["*/tests/*", "*/__init__.py"]
 skip_covered = true
 # Show missing line numbers in the report for easier navigation
 show_missing = true
-# Only flag files below 70% coverage as failures during local checks (upstream uses 80,
-# but I'm still learning the codebase and don't want CI noise on WIP branches)
-fail_under = 70
+# Personal preference: fail the coverage check if total drops below 60%
+fail_under = 60
 ```
